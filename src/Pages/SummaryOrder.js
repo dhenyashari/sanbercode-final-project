@@ -1,14 +1,14 @@
 import React from 'react';
 import NavbarAll from '../Components/navbar';
+import SummaryList from '../Components/SummaryList';
 
-function SummaryOrder() {
+function Reservation() {
   return (
     <React.Fragment>
       <NavbarAll/>
-      <h1 className='reservation'>SILAHKAN MEGISI FORM RESERVASI</h1>
-      <h1 className='reservation'>SILAHKAN MEGISI FORM RESERVASI</h1>
+      <SummaryList/>
     </React.Fragment>
   );
 }
 
-export default SummaryOrder;
+export default Reservation;

@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/reservation" component={Reservation} />
         <Route exact path="/currency" component={Currency} />
-        <Route exact path="/summary" component={SummaryOrder} />
+        <Route exact path="/order" component={SummaryOrder} />
         {/* <Route exact path="/rooms/" component={Rooms} /> */}
         {/* <Route exact path="/rooms/:slug" component={SingleRoom} /> */}
         {/* <Route component={Error} /> */}

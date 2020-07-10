@@ -45,7 +45,7 @@ class CurrencyInput extends React.Component {
     const currency = this.props.currency;
     const scale = this.props.scale;
     return (
-      <div className='featured-rooms'>
+      <div className='reservation-form'>
         <fieldset>
           <legend>Enter currency in {scaleNames[scale]}:</legend>
           <input value={currency}

@@ -333,7 +333,7 @@ h6 {
 }
 /* end of Currency Conventer Container */
 
-/* end of Currency Conventer Container */
+/*Reservation Container */
 .reservation-form {
   padding-top: 50px;
   /* min-height: calc(100vh - 66px); */
@@ -346,3 +346,48 @@ h6 {
 .reservation-form ul {
   list-style: none;
 }
+/*end of Reservation Container */
+
+/*Summary Order */
+h1 {
+  margin: 50px 0 15px 0;  
+}
+
+#main {
+  width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+ul {
+  list-style: none;
+}
+ul>li:hover {
+  background-color: #F5F5F5;
+}
+.form-inline .form-control {
+  width: 50%;
+  margin-left: 80px;
+}
+.done {
+  color: red;
+  text-decoration: line-through;
+}
+.undone {
+  color: #61DAFB;
+}
+.icon {
+  margin: 6px 10px 6px 0;
+}
+/*end of Summary Order */
+
+/*TO do APP Container */
+.to-do-form {
+  padding-top: 50px;
+  /* min-height: calc(100vh - 66px); */
+  /* background: url("./images/defaultBcg.jpeg") center/cover no-repeat; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*end of Reservation Container */
+
