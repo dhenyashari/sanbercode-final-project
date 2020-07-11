@@ -17,7 +17,7 @@ class NavbarAll extends React.Component {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/reservation">Reservation</Nav.Link>
             <Nav.Link href="/currency">Currency</Nav.Link>
-            <Nav.Link href="/order">Order</Nav.Link>
+            {/* <Nav.Link href="/order">Order</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

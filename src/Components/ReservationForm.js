@@ -2,6 +2,7 @@ import React from 'react'
 import ListCheck from './ListCheck'
 import ListOption from './ListOption'
 import {Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
 
 class ReservationForm extends React.Component {
   constructor(props) {
@@ -69,6 +70,7 @@ class ReservationForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     // grabDataForm();
     console.log(`nama ku ${this.state.name} reservasi kamar jenis skill ${this.state.rooms} nomer hapeku ${this.state.phonenumber} emailku di ${this.state.email} menginap selama ${this.state.durasi} mulai tanggal ${this.state.tanggalmasuk} hingga tanggal ${this.state.tanggalkeluar} jenis kelamin ${this.state.gender} alamat ku di ${this.state.alamat}`)
   }

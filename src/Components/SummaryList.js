@@ -1,97 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Alert, Button} from 'react-bootstrap'
 
-function ListItems(props){
-  const items = props.items;
-  const listItems = items.map(item =>
- {
-     return <div className="list" key={item.key}>
-   <p>
-       <input type="text" id={item.key} value={item.text} onChange={(e)=>{
-           props.setUpdate(e.target.value,item.key)}}/>
-      <span>
-      <button onClick={() => {props.deleteItem(item.key)}}>hapus</button>
-      </span>
-   </p>
-   
-  </div>})
-  return <div> {listItems} </div>;
-}
+function SummaryList() {
+  const [show, setShow] = useState(true);
 
-class TodoApp extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      items:[],
-      currentItem:{
-        text:'',
-        key:''
-      }
-    }
-    this.addItem = this.addItem.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
-    this.setUpdate = this.setUpdate.bind(this);
-  }
-  addItem(e){
-    e.preventDefault();
-    const newItem = this.state.currentItem;
-    if(newItem.text !==""){
-      const items = [...this.state.items, newItem];
-    this.setState({
-      items: items,
-      currentItem:{
-        text:'',
-        key:''
-      }
-    })
-    }
-  }
-  handleInput(e){
-    this.setState({
-      currentItem:{
-        text: e.target.value,
-        key: Date.now()
-      }
-    })
-  }
-  deleteItem(key){
-    const filteredItems= this.state.items.filter(item => item.key!==key);
-    this.setState({
-      items: filteredItems
-    })
-
-  }
-  setUpdate(text,key){
-    console.log("items:"+this.state.items);
-    const items = this.state.items;
-    items.map(item => {      
-      if(item.key===key){
-        console.log(item.key +"    "+key)
-        item.text= text;
-      }
-    })
-    this.setState({
-      items: items
-    })
-    
-   
-  }
- render(){
   return (
-    <div className="App">
-      <header>
-        <form className="to-do-form" onSubmit={this.addItem}>
-          <input type="text" placeholder="Enter task" value= {this.state.currentItem.text} onChange={this.handleInput}></input>
-          <button type="submit">Add</button>
-        </form>
-        <p>{this.state.items.text}</p>
-        
-          <ListItems items={this.state.items} deleteItem={this.deleteItem} setUpdate={this.setUpdate}/>
-        
-      </header>
-    </div>
+    <>
+      <Alert show={show} variant="success">
+        <Alert.Heading>How's it going?!</Alert.Heading>
+        <p>
+          Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+          lacinia odio sem nec elit. Cras mattis consectetur purus sit amet
+          fermentum.
+        </p>
+        <hr />
+        <div className="d-flex justify-content-end">
+          <Button onClick={() => setShow(false)} variant="outline-success">
+            Close me ya'll!
+          </Button>
+        </div>
+      </Alert>
+
+      {!show && <Button onClick={() => setShow(true)}>Show Alert</Button>}
+    </>
   );
- }
 }
 
-export default TodoApp;
+export default SummaryList;
