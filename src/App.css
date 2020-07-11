@@ -391,3 +391,15 @@ ul>li:hover {
 }
 /*end of Reservation Container */
 
+/*Confirmation Summary Box*/
+.confirmation-box {
+  position:relative; 
+  width: 40%;
+  top:80px;
+  left:30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*end of Confirmation Summary Box*/
+

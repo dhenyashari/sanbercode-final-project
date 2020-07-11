@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Title from "./Title";
 import items from '../RoomData/data';
 import Room from "./Room";
-// import Loading from "./Loading";
 
 export default class FeaturedRooms extends Component {
   state = {
@@ -32,8 +31,6 @@ export default class FeaturedRooms extends Component {
   }
 
   render() {
-    // let { featuredRooms: rooms } = this.context;
-
     this.state.featuredRooms = this.state.featuredRooms.map(room => <Room key={room.id} room={room} /> );
     return (
       <section className="featured-rooms">

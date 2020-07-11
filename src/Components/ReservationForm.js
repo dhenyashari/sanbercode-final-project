@@ -3,12 +3,12 @@ import ListCheck from './ListCheck'
 import ListOption from './ListOption'
 import {Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
+import { Link } from "react-router-dom";
 
 class ReservationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // value: '',
       name: '',
       phonenumber: '',
       email: '',
@@ -18,9 +18,10 @@ class ReservationForm extends React.Component {
       alamat:'',
       rooms: [],
       gender:'',
+      // isOke:false,
       genders:[
-        {id: 'male', value: "Laki-Laki", isChecked: false},
-        {id: 'female', value: "Wanita", isChecked: false},
+        {id: 'male', value: "Male", isChecked: false},
+        {id: 'female', value: "Female", isChecked: false},
         {id: 'others', value: "Others", isChecked: false}
       ],
       listrooms: [
@@ -70,9 +71,23 @@ class ReservationForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const newReservationState = {
+      name: this.state.name,
+      phonenumber: this.state.phonenumber,
+      email: this.state.email,
+      durasi: this.state.durasi,
+      tanggalmasuk: this.state.tanggalmasuk,
+      tanggalkeluar: this.state.tanggalkeluar,
+      alamat: this.state.alamat,
+      rooms: this.state.rooms,
+      gender: this.state.gender,
+      // isOke: this.state.isOke,
+    }
+    this.props._handleSubmit(newReservationState)
+    // console.log(newReservationState)
 
     // grabDataForm();
-    console.log(`nama ku ${this.state.name} reservasi kamar jenis skill ${this.state.rooms} nomer hapeku ${this.state.phonenumber} emailku di ${this.state.email} menginap selama ${this.state.durasi} mulai tanggal ${this.state.tanggalmasuk} hingga tanggal ${this.state.tanggalkeluar} jenis kelamin ${this.state.gender} alamat ku di ${this.state.alamat}`)
+    console.log(`nama ku ${this.state.name} reservasi kamar ${this.state.rooms} nomer hapeku ${this.state.phonenumber} emailku di ${this.state.email} menginap selama ${this.state.durasi} mulai tanggal ${this.state.tanggalmasuk} hingga tanggal ${this.state.tanggalkeluar} jenis kelamin ${this.state.gender} alamat ku di ${this.state.alamat}`)
   }
 
   render() {
@@ -132,11 +147,29 @@ class ReservationForm extends React.Component {
           <textarea type="textarea" name="alamat" onChange={this.handleChange} value={alamat} placeholder="where you living..."/>
           </label>
           <br />
-          <Button onClick={this.handleSubmit} variant="danger">Kirim</Button>
+          
+          <Button onClick={this.handleSubmit} variant="danger"><Link to="/order" style={{ color: 'inherit', textDecoration: 'inherit'}}>Kirim</Link></Button>
+          
         </form>
       </div>
     );
   }
 }
 
-export default ReservationForm;
+// const mapStateToProp = state => ({
+//   name: state.name,
+//   phonenumber: state.phonenumber,
+//   email: state.email,
+//   durasi: state.durasi,
+//   tanggalmasuk: state.tanggalmasuk,
+//   tanggalkeluar: state.tanggalkeluar,
+//   alamat: state.alamat,
+//   rooms: state.alamat,
+//   gender: state.alamat,
+// })
+
+const mapDispatchToProp = dispatch => ({
+  _handleSubmit: (newReservationState) => dispatch({type: 'UNCONFIRMED', newReservationState})
+})
+
+export default connect(null,mapDispatchToProp)(ReservationForm);

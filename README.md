@@ -1,3 +1,6 @@
+Project Console: https://console.firebase.google.com/project/react-final-project-c139a/overview
+Hosting URL: https://react-final-project-c139a.web.app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

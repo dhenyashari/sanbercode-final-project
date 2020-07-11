@@ -1,11 +1,15 @@
-import React from 'react';
-import NavbarAll from '../Components/navbar';
+import React, {useEffect} from 'react';
 import SummaryList from '../Components/SummaryList';
 
 function Reservation() {
+
+  useEffect(()=>{
+    document.title = 'Confirmation Order'
+    return () => {document.title = 'Side View Travel';}
+  })
+
   return (
     <React.Fragment>
-      <NavbarAll/>
       <SummaryList/>
     </React.Fragment>
   );
